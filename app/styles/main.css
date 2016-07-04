@@ -82,10 +82,19 @@ body {
   }
 }
 
+/* Accordion styles */
 #accordion .pull-right {
   padding-right: 10px;
 }
 
 #accordion .pull-right:first-child {
   padding-right: 0px;
+}
+
+#accordion .panel-title > a {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 80%;
+  display: inline-block;
 }

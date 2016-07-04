@@ -12,13 +12,10 @@ angular.module('blackswanApp')
     $scope.searchInput = '';
     $scope.repositories = '';
     $scope.loading = false;
-
-    if ($routeParams.repo) {
-      Search($routeParams.repo);
-    }
+    $scope.toggle = 0;
 
     function Search(repo) {
-      var repo = repo || $scope.searchInput;
+      repo = repo || $scope.searchInput;
 
       $scope.loading = true;
       $scope.message = 'Search results for "' + repo + '"';
@@ -30,6 +27,14 @@ angular.module('blackswanApp')
       });
     }
 
+    if ($routeParams.repo) {
+      $scope.searchInput = $routeParams.repo;
+      Search($routeParams.repo);
+    }
+
     $scope.search = Search;
 
+    $scope.accordion = function(index) {
+      $scope.toggle = index;
+    };
   });

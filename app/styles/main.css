@@ -87,11 +87,16 @@ body {
   padding-right: 10px;
 }
 
+#accordion .pull-right a:hover {
+  text-decoration: none;
+  color: red;
+}
+
 #accordion .pull-right:first-child {
   padding-right: 0px;
 }
 
-#accordion .panel-title > a {
+#accordion .panel-title > strong {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;

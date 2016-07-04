@@ -8,17 +8,28 @@
  * Controller of the blackswanApp
  */
 angular.module('blackswanApp')
-  .controller('MainCtrl', function ($scope, $http) {
-    $scope.test = 'test';
+  .controller('MainCtrl', function ($scope, $http, $routeParams) {
     $scope.searchInput = '';
-    $scope.data = '';
+    $scope.repositories = '';
+    $scope.loading = false;
 
-    $scope.search = function() {
-      $scope.message = 'Search results for "' + $scope.searchInput + '"';
+    if ($routeParams.repo) {
+      Search($routeParams.repo);
+    }
+
+    function Search(repo) {
+      var repo = repo || $scope.searchInput;
+
+      $scope.loading = true;
+      $scope.message = 'Search results for "' + repo + '"';
       $http
-      .get('https://api.github.com/search/repositories?q=' + $scope.searchInput)
+      .get('https://api.github.com/search/repositories?q=' + repo)
       .then(function success(response){
-        $scope.data = response.data;
+        $scope.loading = false;
+        $scope.repositories = response.data;
       });
-    };
+    }
+
+    $scope.search = Search;
+
   });

@@ -81,3 +81,11 @@ body {
     border-bottom: 0;
   }
 }
+
+#accordion .pull-right {
+  padding-right: 10px;
+}
+
+#accordion .pull-right:first-child {
+  padding-right: 0px;
+}

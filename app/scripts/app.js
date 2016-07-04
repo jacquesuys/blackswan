@@ -20,6 +20,11 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
+      .when('/:repo', {
+        templateUrl: 'views/main.html',
+        controller: 'MainCtrl',
+        controllerAs: 'main'
+      })
       .when('/issues/:repo/:user', {
         templateUrl: 'views/issues.html',
         controller: 'IssuesCtrl',

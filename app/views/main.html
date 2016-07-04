@@ -1,9 +1,11 @@
-<form role="form" ng-submit="logger()">
+<form role="form" ng-submit="search()">
   <div class="form-group">
     <input type="search" class="form-control" id="search" ng-model="searchInput" placehoder="Search Repositories">
   </div>
   <button type="submit" class="btn btn-default">Search</button>
 </form>
+
+{{ message ? message : '' }}
 
 <!-- https://developer.github.com/v3/search/ -->
 

@@ -1,0 +1,27 @@
+<h2>Issues for {{ user | titlecase }}:{{ repo | titlecase }}</h2>
+<h3 ng-if="loading">Fetching issues...</h3>
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div ng-repeat="issue in issues.items track by $index" class="panel panel-default">
+    <div class="panel-heading" role="tab" id="heading-{{$index}}">
+      <h4 class="panel-title">
+        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-{{$index}}" 
+        aria-expanded="true" aria-controls="collapse-{{$index}}">
+          <strong>{{ issue.title | titlecase }}</strong>
+        </a>
+        <small class="pull-right">
+          Status: 
+          <span class="badge">{{ issue.state | titlecase }}</span>
+        </small>
+      </h4>
+    </div>
+    <div id="collapse-{{$index}}" class="panel-collapse collapse {{ $index === 0 ? 'in' : '' }}" role="tabpanel" aria-labelledby="heading-{{$index}}">
+      <div class="panel-body">
+        <p>{{ issue.title }}</p>
+        <p>
+          <i class="fa fa-github" aria-hidden="true"></i>
+          <a href="{{ issue.url }}">{{ issue.url }}</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>  

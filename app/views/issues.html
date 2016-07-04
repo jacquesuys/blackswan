@@ -10,17 +10,19 @@
         </a>
         <small class="pull-right">
           Status: 
-          <span class="badge">{{ issue.state | titlecase }}</span>
+          <span class="label {{ issue.state === 'closed' ? 'label-success' : 'label-danger' }}">{{ issue.state | titlecase }}</span>
         </small>
       </h4>
     </div>
     <div id="collapse-{{$index}}" class="panel-collapse collapse {{ $index === 0 ? 'in' : '' }}" role="tabpanel" aria-labelledby="heading-{{$index}}">
       <div class="panel-body">
+        <strong class="pull-right">Issue #{{ issue.number }}</strong>
         <p>{{ issue.title }}</p>
-        <p>
+        <hr />
+        <span>
           <i class="fa fa-github" aria-hidden="true"></i>
           <a href="{{ issue.url }}">{{ issue.url }}</a>
-        </p>
+        </span>
       </div>
     </div>
   </div>

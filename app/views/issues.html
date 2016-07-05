@@ -4,9 +4,9 @@
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
   <div ng-repeat="issue in issues.items track by $index" class="panel panel-default">
     <div class="panel-heading" role="tab" id="heading-{{$index}}">
-      <h4 class="panel-title">
+      <h4 class="panel-title" ng-click="accordion($index)">
         <strong role="button" data-toggle="collapse" data-parent="#accordion"
-        aria-expanded="true" aria-controls="collapse-{{$index}}" ng-click="accordion($index)">
+        aria-expanded="true" aria-controls="collapse-{{$index}}">
           {{ issue.title | titlecase }}</strong>
         </a>
         <small class="pull-right">

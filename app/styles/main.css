@@ -96,7 +96,7 @@ body {
   padding-right: 0px;
 }
 
-#accordion .panel-title > strong {
+#accordion .panel-title > div > strong {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;

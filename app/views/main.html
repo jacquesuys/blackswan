@@ -8,45 +8,7 @@
 <h2 ng-if="message">{{ message }}</h2>
 <h3 ng-if="loading">Fetching repos...</h3>
 
-<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-  <div ng-repeat="repo in repositories.items track by $index" class="panel panel-default">
-    <div class="panel-heading" role="tab" id="heading-{{$index}}">
-      <h4 class="panel-title" ng-click="accordion($index)">
-        <strong role="button" data-toggle="collapse" data-parent="#accordion" 
-        aria-expanded="true" aria-controls="collapse-{{$index}}" >
-          {{ repo.owner.login | titlecase }}
-        </strong>
-        <small class="pull-right">
-          <a ng-href="#/issues/{{searchInput}}/{{repo.owner.login}}">
-            Issues: 
-            <i class="fa fa-exclamation-circle"></i> 
-            <strong>{{ repo.open_issues }}</strong>
-          </a>
-        </small>
-        <small class="pull-right m-r-2">
-          Stars: 
-          <i class="fa fa-star" aria-hidden="true"></i> 
-          <strong>{{ repo.stargazers_count }}</strong>
-        </small>
-        <small class="pull-right m-r-2">
-          Forks: 
-          <i class="fa fa-code-fork" aria-hidden="true"></i> 
-          <strong>{{ repo.forks_count }}</strong>
-        </small>
-      </h4>
-    </div>
-    <div id="collapse-{{$index}}" class="panel-collapse collapse {{ $index === toggle ? 'in' : '' }}" role="tabpanel" aria-labelledby="heading-{{$index}}">
-      <div class="panel-body">
-        <p>{{ repo.description }}</p>
-        <span class="pull-right">{{ repo.open_issues }}</span>
-        <p>
-          <i class="fa fa-github" aria-hidden="true"></i>
-          <a href="{{ repo.html_url }}">{{ repo.html_url }}</a>
-        </p>
-      </div>
-    </div>
-  </div>
-</div>  
+<accordion></accordion>
 
 <!-- https://developer.github.com/v3/search/ -->
 

@@ -1,0 +1,37 @@
+<div class="panel-group" id="accordion">
+  <div ng-repeat="repo in repositories.items track by $index" class="panel panel-default">
+
+    <panel-heading>
+     <strong role="button">
+       {{ repo.owner.login | titlecase }}
+     </strong>
+     <small class="pull-right">
+       <a ng-href="#/issues/{{searchInput}}/{{repo.owner.login}}">
+         Issues: 
+         <i class="fa fa-exclamation-circle"></i> 
+         <strong>{{ repo.open_issues }}</strong>
+       </a>
+     </small>
+     <small class="pull-right m-r-2">
+       Stars: 
+       <i class="fa fa-star" aria-hidden="true"></i> 
+       <strong>{{ repo.stargazers_count }}</strong>
+     </small>
+     <small class="pull-right m-r-2">
+       Forks: 
+       <i class="fa fa-code-fork" aria-hidden="true"></i> 
+       <strong>{{ repo.forks_count }}</strong>
+     </small>
+    </panel-heading>
+
+    <panel-collapse>
+      <p>{{ repo.description }}</p>
+      <hr />
+      <span>
+        <i class="fa fa-github" aria-hidden="true"></i>
+        <a href="{{ repo.html_url }}">{{ repo.html_url }}</a>
+      </span>
+    </panel-collapse>
+
+  </div>
+</div>  

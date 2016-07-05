@@ -1,30 +1,25 @@
 <h2>Issues for {{ user | titlecase }}:{{ repo | titlecase }}</h2>
 <a ng-href="#/{{repo}}" class="btn btn-default"><i class="fa fa-angle-left"></i> {{repo}}</a>
 <h3 ng-if="loading">Fetching issues...</h3>
-<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+<div class="panel-group" id="accordion">
   <div ng-repeat="issue in issues.items track by $index" class="panel panel-default">
-    <div class="panel-heading" role="tab" id="heading-{{$index}}">
-      <h4 class="panel-title" ng-click="accordion($index)">
-        <strong role="button" data-toggle="collapse" data-parent="#accordion"
-        aria-expanded="true" aria-controls="collapse-{{$index}}">
-          {{ issue.title | titlecase }}</strong>
-        </a>
-        <small class="pull-right">
-          Status: 
-          <span class="label {{ issue.state === 'closed' ? 'label-success' : 'label-danger' }}">{{ issue.state | titlecase }}</span>
-        </small>
-      </h4>
-    </div>
-    <div id="collapse-{{$index}}" class="panel-collapse collapse {{ $index === toggle ? 'in' : '' }}" role="tabpanel" aria-labelledby="heading-{{$index}}">
-      <div class="panel-body">
-        <strong class="pull-right">Issue #{{ issue.number }}</strong>
-        <p>{{ issue.title }}</p>
-        <hr />
-        <span>
-          <i class="fa fa-github" aria-hidden="true"></i>
-          <a href="{{ issue.url }}">{{ issue.url }}</a>
-        </span>
-      </div>
-    </div>
+    <panel-heading>
+      <strong role="button">
+        {{ issue.title | titlecase }} 
+      </strong>
+      <small class="pull-right">
+        Status: 
+        <span class="label {{ issue.state === 'closed' ? 'label-success' : 'label-danger' }}">{{ issue.state | titlecase }}</span>
+      </small>
+    </panel-heading>
+    <panel-collapse>
+      <strong class="pull-right">Issue #{{ issue.number }}</strong>
+      <p>{{ issue.title }}</p>
+      <hr />
+      <span>
+        <i class="fa fa-github" aria-hidden="true"></i>
+        <a href="{{ issue.url }}">{{ issue.url }}</a>
+      </span>
+    </panel-collapse>
   </div>
 </div>  

@@ -8,17 +8,19 @@
  * Controller of the blackswanApp
  */
 angular.module('blackswanApp')
-  .controller('IssuesCtrl', function ($scope, $http, $route, $routeParams) {
+  .controller('IssuesCtrl', function ($scope, $routeParams, githubREST) {
     $scope.issues = '';
     $scope.repo = $routeParams.repo ? $routeParams.repo : 'error';
     $scope.user = $routeParams.user ? $routeParams.user : 'error';
     $scope.loading = true;
+    $scope.message = false;
     $scope.toggle = 0;
 
     if ($routeParams.user && $routeParams.repo) {
-      $http.get('https://api.github.com/search/issues?q=repo:'+ $routeParams.user + '/' + $routeParams.repo)
+      githubREST.getIssues($routeParams.user, $routeParams.repo)
       .then(function success(repsonse){
         $scope.loading = false;
+        $scope.message = true;
         $scope.issues = repsonse.data;
       });
     }

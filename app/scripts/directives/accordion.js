@@ -35,4 +35,4 @@ angular.module('blackswanApp')
         '</div>'+
       '</div>'
     };
-  });;
+  });

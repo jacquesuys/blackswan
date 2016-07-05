@@ -84,7 +84,7 @@ body {
 
 /* Accordion styles */
 #accordion .pull-right {
-  padding-right: 10px;
+  padding: 5px;
 }
 
 #accordion .pull-right a:hover {

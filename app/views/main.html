@@ -1,8 +1,10 @@
-<form class="form-inline row" role="form" ng-submit="search()">
-  <div class="form-group col-xs-8">
-    <input type="search" class="form-control" id="search" ng-model="searchInput" placeholder="Search Repositories" style="width:100%">
+<form id="search" class="form" role="form" ng-submit="search()">
+  <div class="form-group row">
+    <div class="col-xs-8 col-sm-10">
+      <input type="search" class="form-control input-block-level" ng-model="searchInput" placeholder="Search Repositories">
+    </div>
+    <button type="submit" class="btn btn-info col-xs-4 col-sm-2">Search <i class="fa fa-search"></i></button>
   </div>
-  <button type="submit" class="btn btn-info col-xs-4">Search</button>
 </form>
 
 <h2 ng-if="message">{{ message }}</h2>

@@ -22,6 +22,9 @@ angular.module('blackswanApp')
         $scope.loading = false;
         $scope.message = true;
         $scope.issues = repsonse.data;
+      })
+      .catch(function(){
+        $scope.error = true;
       });
     }
 

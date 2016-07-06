@@ -1,6 +1,10 @@
 <h2>Issues for {{ user | titlecase }}:{{ repo | titlecase }}</h2>
-<a ng-href="#/{{repo}}" class="btn btn-default"><i class="fa fa-angle-left"></i> {{repo}}</a>
+<a ng-href="#/{{repo}}" class="btn btn-default btn-back"><i class="fa fa-angle-left"></i> {{repo}}</a>
 <h3 ng-if="loading">Fetching issues...</h3>
+<h3 ng-if="error" class="text-center">
+  <p>An <span class="label label-danger">Error</span> occured</p>
+  <div><a ng-href="#/{{repo}}"><small>Go Back</small></a></div>
+</h3>
 <div class="panel-group" id="accordion">
   <div ng-repeat="issue in issues.items track by $index" class="panel panel-default">
     <panel-heading>

@@ -35,4 +35,11 @@ angular.module('blackswanApp')
         '</div>'+
       '</div>'
     };
+  })
+  .directive('scrollMore', function() {
+    return {
+      template: '<div class="row scroll-more">'+
+        '<span class="col-sm-12">Scroll for more <i class="fa fa-long-arrow-down"></i></span>'+
+      '</div>'
+    }
   });

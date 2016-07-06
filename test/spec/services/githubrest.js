@@ -37,7 +37,7 @@ describe('Service: githubREST', function () {
     httpBackend.flush();
 
     expect($scope.status).toBe(200);
-    expect($scope.response).toEqual({"total_count": 0, "incomplete_results": false, "items": []});
+    expect(typeof $scope.response).toBe('object');
   }));
 
   it('should have "getIssues" method', function () {
@@ -51,6 +51,7 @@ describe('Service: githubREST', function () {
     $http.get('https://api.github.com/search/issues?q=repo:twbs/repo')
     .success(function(data, status, headers, config) {
       $scope.status = status;
+      $scope.response = data;
     })
     .error(function(data, status, headers, config) {
       $scope.status = false;
@@ -64,6 +65,7 @@ describe('Service: githubREST', function () {
     httpBackend.flush();
 
     expect($scope.status).toBe(200);
+    expect(typeof $scope.response).toBe('object');
   }));
 
 });

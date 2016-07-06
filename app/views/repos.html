@@ -7,18 +7,18 @@
      </strong>
      <small class="pull-right">
        <a ng-href="#/issues/{{searchInput}}/{{repo.owner.login}}">
-         Issues: 
+         <span>Issues:</span> 
          <i class="fa fa-exclamation-circle"></i> 
          <strong>{{ repo.open_issues }}</strong>
        </a>
      </small>
-     <small class="pull-right m-r-2">
-       Stars: 
+     <small class="pull-right">
+       <span>Stars:</span> 
        <i class="fa fa-star" aria-hidden="true"></i> 
        <strong>{{ repo.stargazers_count }}</strong>
      </small>
-     <small class="pull-right m-r-2">
-       Forks: 
+     <small class="pull-right">
+       <span>Forks:</span> 
        <i class="fa fa-code-fork" aria-hidden="true"></i> 
        <strong>{{ repo.forks_count }}</strong>
      </small>
